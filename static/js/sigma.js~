@@ -1,0 +1,82 @@
+$(document).ready(function(){
+	$("#H").mouseover(function(){
+		if(!$("#detail_1_H").is(":animated")){
+			$("#detail_1_H").animate({width:"show"},200,function(){
+				$("#detail_2_H").slideDown(50);
+				$(this).children("p").fadeIn(100);
+				
+			});
+		}
+	});
+});
+
+$(document).ready(function(){
+		$("#H").mouseout(function(){
+			if($("#detail_1_H").is(":animated")) 
+				$("#detail_1_H").stop(false,true);
+			if($("#detail_2_H").is(":animated")) 
+				$("#detail_2_H").stop(false,true);
+			$("#detail_1_H").css("display","none");
+			$("#detail_2_H").css("display","none");
+		});
+});
+
+
+$(document).ready(function(){
+		$("#I").mouseover(function(){
+			if(!$("#detail_1_I").is(":animated")){
+				$("#detail_1_I").animate({width:"show"},200,function(){
+					$(this).children("p").fadeIn(100);
+				});
+			}
+		});
+});
+
+$(document).ready(function(){
+	$("#I").mouseout(function(){
+		$("#detail_1_I").children("p").fadeOut(0);
+		$("#detail_1_I").animate({width:"hide"},0);
+	});
+});
+
+
+$(document).ready(function(){
+	$("#A").mouseover(function(){
+		if(!$("#detail_1_A").is(":animated")){
+			$("#detail_1_A").animate({width:"show"},200,function(){
+				$(this).children("p").fadeIn(100);
+			});
+		}
+	});
+});
+
+$(document).ready(function(){
+	$("#A").mouseout(function(){
+		$("#detail_1_A").children("p").fadeOut(0);
+		$("#detail_1_A").animate({width:"hide"},0);
+	});
+});
+
+
+$(document).ready(function(){
+	$("#P").mouseover(function(){
+		if(!$("#detail_1_P").is(":animated")){
+			$("#detail_1_P").animate({width:"show"},200,function(){
+				$(this).children("p").fadeIn(100);
+			});
+		}
+	});
+});
+
+$(document).ready(function(){
+	$("#P").mouseout(function(){
+		$("#detail_1_P").children("p").fadeOut(0);
+		$("#detail_1_P").animate({width:"hide"},0);
+	});
+});
+
+
+
+
+
+
