@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+from flask import * 
+app = Flask(__name__)
+@app.route('/')
+def index():
+	title=request.args.get("title","")
+ 	return render_template('sigma.html',title=title)
+
+if __name__=='__main__':
+=======
 from __future__ import with_statement
 from contextlib import closing
 import sqlite3
@@ -68,6 +78,11 @@ def logout():
 	return redirect(url_for('sigma'))
 
 if __name__ ==  '__main__':
+<<<<<<< HEAD
 	init_db() 
+=======
+	init_db()
+>>>>>>> 5ab5422cf7afe0698fa067ddd512e03ed64788a2
+>>>>>>> fe73272af40a7594aff905caddbb67cc50d3f665
 	app.debug=True
 	app.run()

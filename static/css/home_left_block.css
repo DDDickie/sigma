@@ -1,6 +1,6 @@
-#left_block{
+.left_block{
 	display:inline-block;
-	position:absolute;;
+	position:absolute;
 	top:30px;
 	width:400px;
 	height:610px;
