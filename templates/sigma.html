@@ -7,7 +7,8 @@
 	<Link type="text/css" rel="stylesheet" href="../static/css/home_left_block.css"/>	
 	<Link type="text/css" rel="stylesheet" href="../static/css/home_right_block.css"/>	
 	<script type="text/javascript" rel="script" src="../static/js/sigma.js"></script>
-
+	<script type="text/javascript" rel="script" src="../static/js/detail_show.js"></script>
+	<script type="text/javascript" rel="script" src="../static/js/menu.js"></script>
 	<title>sigma studio</title>
 </head>
 
@@ -15,7 +16,7 @@
 	<div id="main_block">
 		<!--header-->
 		<div id="menu">
-			<p class="header">登录</p>
+			<p class="header" style="cursor:pointer">登录</p>
 			<div class="header">
 				<p class="home" >主页</p>
 				<p class="download">资料下载</p>
@@ -24,9 +25,9 @@
 			</div>
 		</div>
 
-		<div class="body_block">
+		<div class="home_block every_block">
 			<!--left-->
-			<div id="left_block">
+			<div class="left_block">
 				<div class="circle_big_white">
 					<div class="circle_big_inside">
 						<p class="circle_big_font">Σ</p>
@@ -34,8 +35,6 @@
 				</div>
 
 				<div class="judge"></div>
-
-
 
 					<!--small circle-->
 				<div class="detail_1">
@@ -98,7 +97,7 @@
 			</div>
 
 			<!--right block-->
-			<div id="right_block">
+			<div class="right_block">
 				<div class="up"></div>
 				<div class="right"></div>
 				<div style="float:right">
@@ -118,6 +117,46 @@
 				</div>
 				<div class="circle_right"></div>
 			</div>
+		</div>
+
+		<div class="download_block every_block">
+			download_block
+		</div>
+
+		<div class="outsource_block every_block">
+			outsource_block
+		</div>
+
+		<div class="recruit_block every_block">
+			<form>
+				 *姓名:<input type="text" name="name"/>
+
+				 <p style="display:inline">*性别:</p>
+				 <select name="sex">
+				 	<option value="male">男</option>
+				 	<option value="female">女</option>
+				 </select>
+
+				 *手机号码:<input type="text" name="phoneNum"/>
+
+				 *邮箱:<input type="text" name="email"/>
+				 <br/>
+
+				 <p>是否有编程或绘画基础</p>
+				 <input type="text" 
+				 		placeholder="请把相关的学习经历以及获奖情况写下来" 
+				 		name="LearnBasic" 
+				 		style="width:500px;height:30px"/>
+				 <br/>
+
+				 <p>自我介绍</p>
+				 <textarea type="text" 
+				 		name="introduction" 
+
+				 		style="overflow:inherit;width:500px;height:300px;resize:none;direction:rtl">
+				 </textarea>
+
+			</form>
 		</div>
 	</div>
 </body>
