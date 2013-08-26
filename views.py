@@ -52,13 +52,37 @@ def zhaoxin():
 def	add_entry():
 #	if not session.get('logged_in'):
 #		absort(401)
-	g.db.execute('insert into entries (name,ID,sex,class,interest) values (?,?,?,?,?)',[request.form['name'],request.form['xuehao'],request.form['sex'],request.form['class'],request.form['interest']])
+	g.db.execute('insert into entries (name,xuehao,sex,class,base,phone,email,others) values (?,?,?,?,?,?,?,?)',[request.form['name'],request.form['xuehao'],request.form['sex'],request.form['class'],request.form['base'],request.form['phone'],request.form['email'],request.form['others']])
 	g.db.commit()
 	flash('NEW entry was successfully posted')
 	return redirect(url_for('zhaoxin'))
 
+@app.route('/login', methods = ['GET','POST'])
+def	login():
+	error =None
+	if request.method == 'POST':
+		if request.form['username'] != app.config['USERNAME']:
+			error = 'Invalid username'
+		elif request.form['password'] != app.config['PASSWORD']:
+			error = 'Invalid password'
+		else:
+			session['logged_in']=True
+			flash('You were logged in')
+			return redirect(url_for('sigma'))
+	return render_template('login.html',error=error)
+
+@app.route('/logout')
+def logout():
+	session.pop('logged_in',None)
+	flash('You were logged out')
+	return redirect(url_for('sigma'))
+
 if __name__ ==  '__main__':
+<<<<<<< HEAD
+	init_db() 
+=======
 	init_db()
 >>>>>>> 5ab5422cf7afe0698fa067ddd512e03ed64788a2
+>>>>>>> fe73272af40a7594aff905caddbb67cc50d3f665
 	app.debug=True
 	app.run()
