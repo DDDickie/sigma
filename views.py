@@ -27,8 +27,8 @@ def before_request():
 
 @app.after_request
 def after_request(response):
-		g.db.close()
-		return response
+	g.db.close()
+	return response
 
 @app.route('/')
 def index():
