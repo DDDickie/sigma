@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-from flask import * 
-app = Flask(__name__)
-@app.route('/')
-def index():
-	title=request.args.get("title","")
- 	return render_template('sigma.html',title=title)
-
-if __name__=='__main__':
-=======
 from __future__ import with_statement
 from contextlib import closing
 import sqlite3
@@ -26,8 +16,8 @@ def connect_db():
 		return sqlite3.connect(app.config['DATEBASE'])
 
 def init_db():
-	with closing(connect_db()) as db:
-		with app.open_resource('schema.sql') as f:
+ 	with closing(connect_db()) as db:
+ 		with app.open_resource('schema.sql') as f:
 			db.cursor().executescript(f.read())
 		db.commit()
 
@@ -55,13 +45,13 @@ def	add_entry():
 	g.db.execute('insert into entries (name,xuehao,sex,class,base,phone,email,others) values (?,?,?,?,?,?,?,?)',[request.form['name'],request.form['xuehao'],request.form['sex'],request.form['class'],request.form['base'],request.form['phone'],request.form['email'],request.form['others']])
 	g.db.commit()
 	flash('NEW entry was successfully posted')
-	return redirect(url_for('zhaoxin'))
+ 	return redirect(url_for('zhaoxin'))
 
 @app.route('/login', methods = ['GET','POST'])
 def	login():
-	error =None
+ 	error =None
 	if request.method == 'POST':
-		if request.form['username'] != app.config['USERNAME']:
+ 		if request.form['username'] != app.config['USERNAME']:
 			error = 'Invalid username'
 		elif request.form['password'] != app.config['PASSWORD']:
 			error = 'Invalid password'
@@ -78,11 +68,6 @@ def logout():
 	return redirect(url_for('sigma'))
 
 if __name__ ==  '__main__':
-<<<<<<< HEAD
 	init_db() 
-=======
-	init_db()
->>>>>>> 5ab5422cf7afe0698fa067ddd512e03ed64788a2
->>>>>>> fe73272af40a7594aff905caddbb67cc50d3f665
 	app.debug=True
 	app.run()
