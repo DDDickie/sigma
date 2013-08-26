@@ -42,7 +42,7 @@ def zhaoxin():
 def	add_entry():
 #	if not session.get('logged_in'):
 #		absort(401)
-	g.db.execute('insert into entries (name,xuehao,sex,class,base,phone,email,others) values (?,?,?,?,?,?,?,?)',[request.form['name'],request.form['xuehao'],request.form['sex'],request.form['class'],request.form['base'],request.form['phone'],request.form['email'],request.form['others']])
+	g.db.execute('insert into entries (name,xuehao,sex,class,basic,phone,email,others) values (?,?,?,?,?,?,?,?)',[request.form['name'],request.form['xuehao'],request.form['sex'],request.form['class'],request.form['basic'],request.form['phone'],request.form['email'],request.form['others']])
 	g.db.commit()
 	flash('NEW entry was successfully posted')
  	return redirect(url_for('zhaoxin'))
