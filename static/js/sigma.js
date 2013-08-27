@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$(".header p").css("cursor","pointer");
-	$(".home").addClass("menu_pointer");
+	$(".home").addClass("active");
 	$(".home_block").addClass("display_inline");
 
 });

@@ -5,10 +5,12 @@
 	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
 	<Link type="text/css" rel="stylesheet" href="../static/css/sigma.css"/>	
 	<Link type="text/css" rel="stylesheet" href="../static/css/home_left_block.css"/>	
-	<Link type="text/css" rel="stylesheet" href="../static/css/home_right_block.css"/>	
+	<Link type="text/css" rel="stylesheet" href="../static/css/home_right_block.css"/>
+	<Link type="text/css" rel="stylesheet" href="../static/css/recruit_block.css"/>
 	<script type="text/javascript" rel="script" src="../static/js/sigma.js"></script>
 	<script type="text/javascript" rel="script" src="../static/js/detail_show.js"></script>
 	<script type="text/javascript" rel="script" src="../static/js/menu.js"></script>
+	<script type="text/javascript" rel="script" src="../static/js/recruitBlockJudge.js"></script>
 	<title>sigma studio</title>
 </head>
 
@@ -128,33 +130,66 @@
 		</div>
 
 		<div class="recruit_block every_block">
-			<form>
-				 *姓名:<input type="text" name="name"/>
+			<form action="{{ url_for('add_entry') }}" method="post" class="add-entry" onsubmit="return form_judge()">
+				 <p>*姓名:</p>
+				 <input type="text" 
+				 		name="name"
+				 		class="input_name"/>
+				 <br/>
 
-				 <p style="display:inline">*性别:</p>
-				 <select name="sex">
+				 <p>*班级:</p>
+				 <select name="specialty">
+				 	<option value="software">软件工程</option>
+				 	<option value="digitalmedia">数字媒体技术</option>
+				 </select>
+				<br/>
+
+				<p>*性别:</p>
+				 <select name="sex" style="width:105px">
 				 	<option value="male">男</option>
 				 	<option value="female">女</option>
 				 </select>
-
-				 *手机号码:<input type="text" name="phoneNum"/>
-
-				 *邮箱:<input type="text" name="email"/>
 				 <br/>
 
-				 <p>是否有编程或绘画基础</p>
+				 <p>*学号:</p>
 				 <input type="text" 
-				 		placeholder="请把相关的学习经历以及获奖情况写下来" 
-				 		name="LearnBasic" 
-				 		style="width:500px;height:30px"/>
+				 		class="input_stu_id" 
+				 		name="studentid" 
+				 		placeholder="例:U201311111"
+				 		style="margin-bottom:20px"/>
+				 <p class="student_ID display_none" style="font-size:13px">注意:请输入正确的学号</p>
 				 <br/>
 
-				 <p>自我介绍</p>
-				 <textarea type="text" 
-				 		name="introduction" 
+				 <p>*手机:</p>
+				 <input type="text" 
+				 		class="input_phone_num" 
+				 		name="phone" 
+				 		style="margin-bottom:20px"/>
+				 <p class="phoneNum display_none" style="font-size:13px">注意:请输入正确的手机号码</p>
+				 <br/>
 
-				 		style="overflow:inherit;width:500px;height:300px;resize:none;direction:rtl">
-				 </textarea>
+				 <p>*邮箱:</p>
+				 <input type="text" 
+				 		class="input_email" 
+				 		name="email" 
+				 		style="margin-bottom:10px"/>
+				 <p class="email display_none" style="font-size:13px">注意:请输入正确的邮箱地址</p>
+				 <br/>
+
+				 <p style="margin-bottom:5px;margin-left:10px;">是否有编程或绘画基础</p>
+				 <textarea type="text" 
+				 			placeholder="请把相关的学习经历以及获奖情况写下来" 
+				 			name="basic" 
+				 			style="width:500px;height:50px;resize:none;margin-left:10px;"></textarea>
+				 <br/>
+
+				 <p style="margin:5px;display:block;margin-left:10px;">自我介绍</p>
+				 <textarea placeholder="1.个人兴趣 2.学习经历 3.为什么要加入团队 4.想在团队里学到什么 5.个人时间安排 6.其他...."
+				 			 name="others" 
+				 			 style="width:500px;height:150px;resize:none;;margin-left:10px;"></textarea>
+				 <br/>
+
+				 <input type="submit" value="提交" style="margin-left:210px;margin-top:10px;" />
 
 			</form>
 		</div>
