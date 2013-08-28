@@ -6,55 +6,51 @@
 	<Link type="text/css" rel="stylesheet" href="../static/css/sigma.css"/>	
 	<Link type="text/css" rel="stylesheet" href="../static/css/home_left_block.css"/>	
 	<Link type="text/css" rel="stylesheet" href="../static/css/home_right_block.css"/>
-	<Link type="text/css" rel="stylesheet" href="../static/css/recruit_block.css"/>
 	<Link type="text/css" rel="stylesheet" href="../static/css/log_in.css"/>
 	<script type="text/javascript" rel="script" src="../static/js/sigma.js"></script>
 	<script type="text/javascript" rel="script" src="../static/js/detail_show.js"></script>
-	<script type="text/javascript" rel="script" src="../static/js/menu.js"></script>
 	<script type="text/javascript" rel="script" src="../static/js/log_in.js"></script>
-	<script type="text/javascript" rel="script" src="../static/js/recruitBlockJudge.js"></script>
 	<title>sigma studio</title>
 </head>
 
 <body onload="pageStart()">
 
 	<div class="login_div1">
-	<div class="login_div2">
-		<div class="login_header">
-			<p style="color:white;margin-left:20px;">登陆</p>
-			<p class="login_x">X</p>
+		<div class="login_div2">
+			<div class="login_header">
+				<p style="color:white;margin-left:20px;">登陆</p>
+				<p class="login_x">X</p>
+			</div>
+
+			<form name="myform"  method="post" class="login_form">
+				<p>用户名:</p>
+				<input type="text" name="username"  class="login_username"/>
+				<br/>
+
+				<p style="margin-left:18px;">密码:</p>
+				<input type="password" name="pasword" class="login_password"/>
+				<br/>
+
+				<p class="login_button">登陆</p>
+				<p class="login_exit_button">取消</p>
+				</td>
+			</form>
 		</div>
-
-		<form name="myform"  method="post" class="login_form">
-			<p>用户名:</p>
-			<input type="text" name="username"  class="login_username"/>
-			<br/>
-
-			<p style="margin-left:18px;">密码:</p>
-			<input type="password" name="pasword" class="login_password"/>
-			<br/>
-
-			<p class="login_button">登陆</p>
-			<p class="login_exit_button">取消</p>
-			</td>
-		</form>
-		
-	</div>
 	</div>
 
 	<div id="main_block">
 		<!--header-->
-		<div id="menu">
+		<div class="menu">
 			<p class="header login_menu" style="cursor:pointer">登录</p>
 			<div class="header">
-				<p class="home" >主页</p>
-				<p class="download">资料下载</p>
-				<p class="outsource">项目外包</p>
-				<p class="recruit" style="border-style:none">团队招新</p>
+				<p class="home menu_active" >主页</p>
+				<a class="download" href="download.html">资料下载</a>
+				<a class="outsource" href="outsource.html">项目外包</a>
+				<a class="recruit" style="border-style:none" href="recruit.html">团队招新</a>
 			</div>
 		</div>
 
-		<div class="home_block every_block">
+		<div class="home_block">
 			<!--left-->
 			<div class="left_block">
 				<div class="circle_big_white">
@@ -147,79 +143,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="download_block every_block">
-			download_block
-		</div>
-
-		<div class="outsource_block every_block">
-			outsource_block
-		</div>
-
-		<div class="recruit_block every_block">
-			<form action="{{ url_for('add_entry') }}" method="post" class="add-entry" onsubmit="return form_judge()">
-				 <p>*姓名:</p>
-				 <input type="text" 
-				 		name="name"
-				 		class="input_name"/>
-				 <br/>
-
-				 <p>*班级:</p>
-				 <select name="specialty">
-				 	<option value="software">软件工程</option>
-				 	<option value="digitalmedia">数字媒体技术</option>
-				 </select>
-				<br/>
-
-				<p>*性别:</p>
-				 <select name="sex" style="width:105px">
-				 	<option value="male">男</option>
-				 	<option value="female">女</option>
-				 </select>
-				 <br/>
-
-				 <p>*学号:</p>
-				 <input type="text" 
-				 		class="input_stu_id" 
-				 		name="studentid" 
-				 		placeholder="例:U201311111"
-				 		style="margin-bottom:20px"/>
-				 <p class="student_ID display_none" style="font-size:13px">注意:请输入正确的学号</p>
-				 <br/>
-
-				 <p>*手机:</p>
-				 <input type="text" 
-				 		class="input_phone_num" 
-				 		name="phone" 
-				 		style="margin-bottom:20px"/>
-				 <p class="phoneNum display_none" style="font-size:13px">注意:请输入正确的手机号码</p>
-				 <br/>
-
-				 <p>*邮箱:</p>
-				 <input type="text" 
-				 		class="input_email" 
-				 		name="email" 
-				 		style="margin-bottom:10px"/>
-				 <p class="email display_none" style="font-size:13px">注意:请输入正确的邮箱地址</p>
-				 <br/>
-
-				 <p style="margin-bottom:5px;margin-left:10px;">是否有编程或绘画基础</p>
-				 <textarea type="text" 
-				 			placeholder="请把相关的学习经历以及获奖情况写下来" 
-				 			name="basic" 
-				 			style="width:500px;height:50px;resize:none;margin-left:10px;"></textarea>
-				 <br/>
-
-				 <p style="margin:5px;display:block;margin-left:10px;">自我介绍</p>
-				 <textarea placeholder="1.个人兴趣 2.学习经历 3.为什么要加入团队 4.想在团队里学到什么 5.个人时间安排 6.其他...."
-				 			 name="others" 
-				 			 style="width:500px;height:150px;resize:none;;margin-left:10px;"></textarea>
-				 <br/>
-
-				 <input type="submit" value="提交" style="margin-left:210px;margin-top:10px;" />
-
-			</form>
 		</div>
 	</div>
 </body>

@@ -1,10 +1,3 @@
-$(document).ready(function(){
-	$(".header p").css("cursor","pointer");
-	$(".home").addClass("active");
-	$(".home_block").addClass("display_inline");
-
-});
-
 function pageStart()
 {
 	$(document).ready(function(){
