@@ -8,9 +8,8 @@
 	position: absolute;
 	top:65px;
 	left: 0px;
-	padding: 20px 313px;
+	padding: 20px 313px 0px 313px;
 	display: none;
-	border: 2px black solid;
 	width: auto;
 	height: auto;
 }
