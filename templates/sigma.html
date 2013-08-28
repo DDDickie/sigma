@@ -27,15 +27,15 @@
 
 		<form name="myform"  method="post" class="login_form">
 			<p>用户名:</p>
-			<input type="text" name="username" size="15">
+			<input type="text" name="username" size="15" class="login_username"/>
 			<br/>
 
 			<p style="margin-left:18px;">密码:</p>
-			<input type="password" name="pasword" size="15">
+			<input type="password" name="pasword" size="15" class="login_password"/>
 			<br/>
 
-			<input type="button" name="logoin" value="登陆" style="margin-left:59px;margin-right:43px" onClick="logo_in()">
-			<input type="button" name="exit" value="取消" onClick="closeme()">
+			<p class="login_button">登陆</p>
+			<p class="login_exit_button">取消</p>
 			</td>
 		</form>
 		
@@ -45,7 +45,7 @@
 	<div id="main_block">
 		<!--header-->
 		<div id="menu">
-			<p class="header log_in" style="cursor:pointer">登录</p>
+			<p class="header login_menu" style="cursor:pointer">登录</p>
 			<div class="header">
 				<p class="home" >主页</p>
 				<p class="download">资料下载</p>

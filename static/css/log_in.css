@@ -53,3 +53,27 @@
 	margin:22px auto;
 	width: 240px;
 }
+
+.login_button
+{
+	margin-left:39px;
+	margin-right:43px;
+	padding-top: 7px;
+	background-color: black;
+	width:  68px;
+	height: 23px;
+	color: white;
+	text-align: center;
+	cursor: pointer!important;
+}
+
+.login_exit_button
+{
+	padding-top: 7px;
+	background-color: black;
+	width: 68px;
+	height: 23px;
+	color: white;
+	text-align: center;
+	cursor: pointer!important;
+}
