@@ -22,7 +22,7 @@
 				<p class="login_x">X</p>
 			</div>
 
-			<form name="myform"  method="post" class="login_form">
+			<form name="myform" action="{{ url_for('login') }}" method="post" class="login_form" onsubmit="return log_in()">
 				<p>用户名:</p>
 				<input type="text" name="username"  class="login_username"/>
 				<br/>
@@ -31,7 +31,7 @@
 				<input type="password" name="password" class="login_password"/>
 				<br/>
 
-				<p class="login_button">登陆</p>
+				<input type="submit" value="登陆" class="login_button" />
 				<p class="login_exit_button">取消</p>
 				</td>
 			</form>
