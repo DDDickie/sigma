@@ -27,7 +27,7 @@ def before_request():
 
 @app.after_request
 def after_request(response):
-	g.db.close()
+	g.db.close() 
 	return response 
 
 @app.route('/')
@@ -51,12 +51,12 @@ def	login():
  	error =None
 	if request.method == 'POST':
  		if request.form['username'] != app.config['USERNAME']:
-			error = 'Invalid username'
+			error = "false"
 		elif request.form['password'] != app.config['PASSWORD']:
-			error = 'Invalid password'
+			error = "false"
 		else:
 			session['logged_in']=True
-	return render_template("sigma.html")
+	return render_template('sigma.html',error=error)
 
 @app.route('/logout')
 def logout():
@@ -74,6 +74,10 @@ def download():
 @app.route('/outsource.html')
 def outsource():
 	return render_template('outsource.html')
+
+@app.route('/sigma.html')
+def sigma():
+	return render_template('sigma.html')
 
 if __name__ ==  '__main__':
  	init_db()   
