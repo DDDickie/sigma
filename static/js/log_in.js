@@ -11,7 +11,7 @@ function closeme(){
 	});
 }
 
-function logo_in(){
+function log_in(){
 	myform.action="{{ url_for('login') }}"
 	myform.submit()
 	closeme();
@@ -39,7 +39,7 @@ $(document).ready(function(){
 				alert("请输入密码");
 			else if(username_length==0&&password_length==0)
 					alert("请输入用户名和密码");
-				else logo_in();
+				else log_in();
 	});
 });
 
