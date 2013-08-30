@@ -64,7 +64,7 @@ def	login():
 def logout():
 	session.pop('logged_in',None)
 	login_status='login_out'
-	return render_template('sigma. html',login_status=login_status) 
+	return redirect(url_for('sigma')) 
 
 @app.route('/recruit.html')
 def recruit():
