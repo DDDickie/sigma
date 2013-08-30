@@ -74,9 +74,9 @@ def recruit():
 def download():
 	return render_template('download.html')
 
-@app.route('/outsource.html')
+@app.route('/achievement.html')
 def outsource():
-	return render_template('outsource.html')
+	return render_template('achievement.html')
 
 @app.route('/sigma.html')
 def sigma():
