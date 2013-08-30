@@ -34,7 +34,8 @@ def after_request(response):
 @app.route('/')
 def index():
 	login_status='login_out'
-	return render_template('sigma.html',login_status=login_status)
+	start="first"
+	return render_template('sigma.html',login_status=login_status,start=start)
 
 @app.route('/add', methods = ['POST'])
 def	add_entry():
