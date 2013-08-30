@@ -1,9 +1,8 @@
 create table if not exists entries (
-		id integer primary key autoincrement,
 		name string not null,
-		studentid string not null,
+		studentid string not null primary key,
 		sex string not null,
-		class string not null,
+		specialty string not null,
 		basic string not null,
 		phone string not null,
 		email string not null,
