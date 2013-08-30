@@ -8,7 +8,7 @@ DEBUG = True
 SECRET_KEY = 'development key'
 USERNAME ='admin'
 PASSWORD = '123456'
-login_status='0'
+login_status='login_out'   
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -33,7 +33,7 @@ def after_request(response):
 
 @app.route('/')
 def index():
-	login_status='0'
+	login_status='login_out'
 	return render_template('sigma.html',login_status=login_status)
 
 @app.route('/add', methods = ['POST'])
@@ -52,19 +52,19 @@ def	add_entry():
 def	login():  
 	if request.method == 'POST':
  		if request.form['username'] != app.config['USERNAME']:
-			error = '2'
+			login_status = 'login_mistake'
 		elif request.form['password'] != app.config['PASSWORD']:
-			error = '2'
+			login_status = 'login_mistake'
 		else:
-			login_status='1'
+			login_status='login_in' 
 			session['logged_in']=True
 	return render_template("sigma.html",login_status=login_status)
 
 @app.route('/logout')
 def logout():
 	session.pop('logged_in',None)
-	login_status='0'
-	return render_template('sigma.html',login_status=login_status) 
+	login_status='login_out'
+	return render_template('sigma. html',login_status=login_status) 
 
 @app.route('/recruit.html')
 def recruit():
@@ -86,13 +86,13 @@ def sigma():
 def show():
 	cur = g.db.execute('select studentid from entries') 
 	entries = [dict(studentid=row[0]) for row in cur.fetchall()]
-	return render_template('show.html',entries=entries)
+	return render_template( 'show.html',entries=entries)
 
 @app.route('/show_entries.html')
 def show_entries():
 	cur = g.db.execute('select name,sex,specialty,basic, phone,email,others from entries')
 	entries = [dict(name=row[0],sex=row[1],specialty=row[2],basic=row[3],phone=row[4],email=row[5],others=row[6]) for row in cur.fetchall()]
-	return render_template('show_entries.html',entries=entries)
+	return render_template(' show_entries.html',entries=entries)
 
 if __name__ ==  '__main__':
  	init_db()   
