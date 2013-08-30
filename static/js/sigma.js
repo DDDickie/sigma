@@ -1,4 +1,4 @@
-function pageStart()
+function pageStart_first()
 {
 	$(document).ready(function(){
 		$(".circle_H").fadeIn(200,function(){
@@ -28,6 +28,24 @@ function pageStart()
 	});
 };
 
+function pageStart_other()
+{
+	$(document).ready(function(){
+		$(".circle_H").show(0);
+		$(".circle_I").show(0);
+		$(".circle_A").show(0);
+		$(".circle_P").show(0);
+		$(".circle_small_1_white").show(0);
+		$(".circle_small_2_white").show(0);
+		$(".circle_small_3_white").show(0);
+		$(".circle_small_4_white").show(0);
+		$(".circle_small_5_white").show(0);
+		$(".circle_big_white").show(0);
+		$(".right_block").show(0);
+		$(".right_block_text").show(0);
+		$(".right_block_photo").show(0);
+	});
+};
 
 
 

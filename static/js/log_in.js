@@ -40,6 +40,7 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$(".login_menu").click(function(){
 		openme();
+		$(".login_error").css("display","none");
 	});
 });
 
