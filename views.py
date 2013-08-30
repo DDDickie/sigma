@@ -69,15 +69,15 @@ def logout():
 
 @app.route('/recruit.html')
 def recruit():
-	return render_template('recruit.html')
+	return render_template('recruit.html',login_status=login_status)
 
 @app.route('/download.html')
 def download():
-	return render_template('download.html')
+	return render_template('download.html',login_status=login_status)
 
 @app.route('/achievement.html')
 def outsource():
-	return render_template('achievement.html')
+	return render_template('achievement.html',login_status=login_status)
 
 @app.route('/sigma.html')
 def sigma():
