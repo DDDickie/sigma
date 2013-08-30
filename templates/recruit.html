@@ -40,13 +40,17 @@
 				{% if not session.logged_in %}
 				<p class="header login_menu" style="cursor:pointer">登录</p>
 				{% else %}
-				<a href="{{ url_for('logout') }}" class="header" style="cursor:pointer">已登录</a>
+				<a href="{{ url_for('logout') }}" 
+					class="header" 
+					style="cursor:pointer;margin:16px 0px;	text-decoration: none">注销
+				</a>
+
 				{% endif %}
 			</div>
 			<div class="header">
 				<a class="home" href="sigma.html">主页</a>
 				<a class="download" href="download.html">资料下载</a>
-				<a class="achievement" href="outsource.html">成果展示</a>
+				<a class="achievement" href="achievement.html">成果展示</a>
 				<p class="recruit menu_active" style="border-style:none">团队招新</p>
 			</div>
 		</div>
