@@ -87,13 +87,14 @@ def sigma():
 def show():
 	cur = g.db.execute('select studentid from entries') 
 	entries = [dict(studentid=row[0]) for row in cur.fetchall()]
-	return render_template( 'show.html',entries=entries)
+	return render_template( 'show.html',entries= entries)
 
-@app.route('/show_entries.html')
+@app.route('/show_entries.html',methods=['GET'])
 def show_entries():
-	cur = g.db.execute('select name,sex,specialty,basic, phone,email,others from entries')
+	_id = request.args.get("id")
+	cur = g.db.execute('select name,sex,specialty,basic, phone,email,others from entries where studentid = "' + _id  + '"')
 	entries = [dict(name=row[0],sex=row[1],specialty=row[2],basic=row[3],phone=row[4],email=row[5],others=row[6]) for row in cur.fetchall()]
-	return render_template(' show_entries.html',entries=entries)
+	return render_template('show_entries.html',entries=entries)
 
 if __name__ ==  '__main__':
  	init_db()   
